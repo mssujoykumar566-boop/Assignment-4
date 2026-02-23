@@ -11,6 +11,7 @@ let currentStatus = 'all'
 let total = document.getElementById("total");
 let interviewCount = document.getElementById("interviewCount");
 let rejectCount = document.getElementById("rejectCount");
+let jobReport = document.getElementById("jobReport")
 
 const allFilterBtn = document.getElementById("all-filter-btn");
 const interviewFilterBtn = document.getElementById("interview-filter-btn")
@@ -37,7 +38,39 @@ function calculateCount(){
     interviewCount.innerText = interviewList.length;
     rejectCount.innerText = rejectList.length;
 }
+function updateJobReport() {
 
+  if (currentStatus === "interview-filter-btn") {
+
+    if (interviewList.length === 0) {
+      jobReport.innerText = "0 Job";
+    } else {
+      jobReport.innerText =
+        interviewList.length +
+        " of " +
+        allCardsSection.children.length +
+        " Jobs";
+    }
+
+  } else if (currentStatus === "reject-filter-btn") {
+
+    if (rejectList.length === 0) {
+      jobReport.innerText = "0 Job";
+    } else {
+      jobReport.innerText =
+        rejectList.length +
+        " of " +
+        allCardsSection.children.length +
+        " Jobs";
+    }
+
+  } else {
+
+    jobReport.innerText =
+      allCardsSection.children.length + " Jobs";
+  }
+}
+updateJobReport();
 calculateCount();
 
 function toggleStyle(id){
@@ -97,6 +130,7 @@ function toggleStyle(id){
         card.remove();
 
         calculateCount();
+        updateJobReport();
     }
 
 });
@@ -144,6 +178,7 @@ if(currentStatus == "reject-filter-btn"){
 
 }
 calculateCount()
+updateJobReport();
 
 // console.log(interviewList)
 }
@@ -185,6 +220,7 @@ if(currentStatus == "interview-filter-btn"){
     renderInterview()
 }
 calculateCount()
+updateJobReport();
 
 // console.log(interviewList)
 }
@@ -193,6 +229,12 @@ calculateCount()
 
 function renderInterview(){
 filterSection.innerHTML = ''
+
+if(interviewList.length == 0){
+    jobReport.innerText = `0 Job`
+  }else{
+    jobReport.innerText = interviewList.length + " of " + allCardsSection.children.length + " Jobs";
+  }
 
   
 
@@ -255,7 +297,12 @@ Rejected
 function renderReject(){
 filterSection.innerHTML = ''
 
- filterSection.innerHTML = '';
+if(rejectList.length == 0){
+    jobReport.innerText = `0 Job`
+  }else{
+    jobReport.innerText = rejectList.length + " of " + allCardsSection.children.length + " Jobs";
+  }
+ 
 
     if(rejectList.length == 0){
 
