@@ -16,7 +16,7 @@ d.querySelectorAll() দিয়ে আমরা সব ম্যাচিং ক�
 
 2. a. innerText b. classList c. setAttribute
 
-3. setAttribute
+3. appendChild()
 
 3. কোনো element এ event ঘটলে, সেই event ভিতরের element থেকে বাইরে parent element পর্যন্ত উঠে যায়।
 
