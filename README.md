@@ -14,7 +14,7 @@ d.querySelectorAll() দিয়ে আমরা সব ম্যাচিং ক�
 
 1. createElement()
 
-2. a. innerText b. classList c. classList
+2. a. innerText b. classList c. setAttribute
 
 3. setAttribute
 
